@@ -30,10 +30,10 @@ public class Field {
     }
 
 
-    @Override
-    public String toString(){
 
-            return figure.toString();
+    public char toString2(){
+
+            return figure.toString2();
 
     }
 }

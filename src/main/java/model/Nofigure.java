@@ -4,18 +4,20 @@ package model;
  * Created by ewcia on 16.05.17.
  */
 public class Nofigure implements Figure {
-    String name;
+    char name;
     public Nofigure() {
-        name=" .";
+        name='.';
     }
     public void setName(String name) {
 
     }
 
+    public char getName() {
+        return name;
+    }
 
 
-    @Override
-    public String toString(){
+    public char toString2(){
         return name;
     }
 }

@@ -21,11 +21,14 @@ public class Chessboard {
     public String toString(){
         int k;
         String chessboard="    A B C D E F G H"+"\n";
-        for (int i=0; i<fields.length; i++){
-            k=8-i;
+        for (int i=fields.length-1; i>=0; i--){
+            k=i+1;
             chessboard=chessboard+k+": ";
             for(int j=0; j<fields[i].length; j++) {
-                chessboard = chessboard + fields[i][j].getFigure().toString();
+
+                    chessboard=chessboard+" ";
+
+                chessboard = chessboard + fields[i][j].getFigure().toString2();
             }
             chessboard=chessboard+" "+k+"\n";
         }
@@ -35,7 +38,11 @@ public class Chessboard {
         return chessboard;
     }
 
-    public void spacingFigure() {
+    public void spacingFigure(Player player1, Player player2) {
+        player1.getColor().add(fields[0][4]);
+        fields[0][3].setFigure(new King((char)9812));
+        player2.getColor().add(fields[7][4]);
+        fields[7][3].setFigure(new King((char)9818));
 
 
 

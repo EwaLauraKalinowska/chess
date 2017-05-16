@@ -10,6 +10,6 @@ public interface Figure {
 
 
 
-    @Override
-    public String toString();
+    public char getName();
+    public char toString2();
 }

@@ -8,11 +8,11 @@ import model.Player;
 public class Main {
     public static void main(String[] args) {
 
-        Player player1 = new Player("white");
-        Player player2 = new Player("black");
+        Player player1 = new Player();
+        Player player2 = new Player();
 
         Chessboard chessboard= new Chessboard();
-        chessboard.spacingFigure();
+
 
         Game game= new Game();
         game.play(chessboard, player1, player2);

@@ -8,7 +8,7 @@ public class Chessboard {
         Figure nofigure = new Nofigure();
         for (int i=0; i<8; i++){
             for(int j=0; j<8; j++){
-                this.fields[i][j]= new Field();
+                this.fields[i][j]= new Field(i, j);
                 this.fields[i][j].setFigure(nofigure);
             }
         }
@@ -40,12 +40,22 @@ public class Chessboard {
 
     public void spacingFigure(Player player1, Player player2) {
         player1.getColor().add(fields[0][4]);
-        fields[0][3].setFigure(new King((char)9812));
+        fields[0][4].setFigure(new King((char)9812,player1.getColor()  ));
+        fields[0][4].setEmpty(false);
+
         player2.getColor().add(fields[7][4]);
-        fields[7][3].setFigure(new King((char)9818));
+        fields[7][4].setFigure(new King((char)9818, player2.getColor()));
+        fields[7][4].setEmpty(false);
 
 
 
+    }
 
+    public void doMove(Move move) {
+        move.initialField.setEmpty(true);
+        move.initialField.setFigure(new Nofigure());
+
+        move.finalField.setEmpty(false);
+        move.finalField.setFigure(move.figure);
     }
 }

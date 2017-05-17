@@ -6,12 +6,23 @@ package model;
 public class Field {
     private boolean isEmpty;
     private Figure figure;
+    int x;
+    int y;
 
-    Field() {
+    Field(int x, int y) {
         this.isEmpty = true;
+        this.x=x;
+        this.y=y;
 
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
 
     public boolean isEmpty() {
         return isEmpty;

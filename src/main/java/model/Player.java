@@ -19,4 +19,12 @@ public class Player {
     public Color getColor() {
         return color;
     }
+
+    public void move(Chessboard chessboard) {
+        color.makeMove(chessboard);
+    }
+
+    public boolean dontHaveKing() {
+      return   color.noKing();
+    }
 }

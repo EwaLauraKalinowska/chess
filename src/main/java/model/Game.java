@@ -12,5 +12,20 @@ public class Game {
         chessboard.spacingFigure(player1, player2);
 
         System.out.println( chessboard.toString());
+
+        int i=0;
+        while (i<50) {
+            player1.move(chessboard);
+            System.out.println(chessboard);
+            if(!player2.dontHaveKing()){
+                break;
+            }
+            player2.move(chessboard);
+            System.out.println(chessboard);
+            if(!player1.dontHaveKing()){
+                break;
+            }
+            i++;
+        }
     }
 }

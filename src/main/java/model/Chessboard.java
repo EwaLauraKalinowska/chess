@@ -4,6 +4,9 @@ package model;
  * Created by ewcia on 15.05.17.
  */
 public class Chessboard {
+
+    private Field[][] fields= new Field[8][8];
+
     public Chessboard() {
         Figure nofigure = new Nofigure();
         for (int i=0; i<8; i++){
@@ -15,7 +18,7 @@ public class Chessboard {
 
     }
 
-    Field[][] fields= new Field[8][8];
+
 
     @Override
     public String toString(){
@@ -42,6 +45,16 @@ public class Chessboard {
         player1.getColor().add(fields[0][4]);
         fields[0][4].setFigure(new King((char)9812, player1.getColor()));
         fields[0][4].setEmpty(false);
+
+        player1.getColor().add(fields[0][1]);
+        player1.getColor().add(fields[0][6]);
+
+        fields[0][1].setEmpty(false);
+        fields[0][6].setEmpty(false);
+
+        fields[0][1].setFigure(new Knight((char)9816, player1.getColor()));
+        fields[0][6].setFigure(new Knight((char)9816, player1.getColor()));
+
         for(int i=0; i<8; i++){
             player1.getColor().add(fields[1][i]);
             fields[1][i].setEmpty(false);
@@ -56,6 +69,15 @@ public class Chessboard {
         fields[7][4].setFigure(new King((char)9818, player2.getColor()));
         fields[7][4].setEmpty(false);
 
+        player2.getColor().add(fields[7][1]);
+        player2.getColor().add(fields[7][6]);
+
+        fields[7][1].setEmpty(false);
+        fields[7][6].setEmpty(false);
+
+        fields[7][1].setFigure(new Knight((char)9822, player2.getColor()));
+        fields[7][6].setFigure(new Knight((char)9822, player2.getColor()));
+
 
 
     }
@@ -66,5 +88,9 @@ public class Chessboard {
 
         move.finalField.setEmpty(false);
         move.finalField.setFigure(move.figure);
+    }
+
+    public Field[][] getFields() {
+        return fields;
     }
 }

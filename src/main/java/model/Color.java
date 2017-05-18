@@ -9,6 +9,7 @@ public class Color {
     private String name;
     boolean hawKing;
     private List<Field> listOfFields= new LinkedList<Field>();
+
     public Color(String name) {
         this.name = name;
 

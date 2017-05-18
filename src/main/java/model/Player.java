@@ -6,7 +6,7 @@ package model;
 public class Player {
 
 
-    Color color;
+    private Color color;
 
     public Player() {
 

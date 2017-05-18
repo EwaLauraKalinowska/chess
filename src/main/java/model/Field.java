@@ -6,8 +6,8 @@ package model;
 public class Field {
     private boolean isEmpty;
     private Figure figure;
-    int x;
-    int y;
+    private int x;
+    private int y;
 
     Field(int x, int y) {
         this.isEmpty = true;

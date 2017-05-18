@@ -60,6 +60,13 @@ public class Chessboard {
         squares[0][0].setChessman(new Rook((char)9814, player1.getColor()));
         squares[0][7].setChessman(new Rook((char)9814, player1.getColor()));
 
+        player1.getColor().add(squares[0][2]);
+        player1.getColor().add(squares[0][5]);
+        squares[0][2].setEmpty(false);
+        squares[0][5].setEmpty(false);
+        squares[0][2].setChessman(new Bishop((char)9815, player1.getColor()));
+        squares[0][5].setChessman(new Bishop((char)9815, player1.getColor()));
+
         for(int i=0; i<8; i++){
             player1.getColor().add(squares[1][i]);
             squares[1][i].setEmpty(false);
@@ -87,6 +94,13 @@ public class Chessboard {
         squares[7][7].setEmpty(false);
         squares[7][0].setChessman(new Rook((char)9820, player2.getColor()));
         squares[7][7].setChessman(new Rook((char)9820, player2.getColor()));
+
+        player2.getColor().add(squares[7][2]);
+        player2.getColor().add(squares[7][5]);
+        squares[7][2].setEmpty(false);
+        squares[7][5].setEmpty(false);
+        squares[7][2].setChessman(new Bishop((char)9821, player2.getColor()));
+        squares[7][5].setChessman(new Bishop((char)9821, player2.getColor()));
 
 
 

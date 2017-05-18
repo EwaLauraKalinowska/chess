@@ -5,7 +5,7 @@ import java.util.Collection;
 /**
  * Created by ewcia on 16.05.17.
  */
-public class Nofigure implements Figure {
+public class Nofigure implements Chessman {
     private char name;
 
     public Nofigure() {
@@ -32,7 +32,7 @@ public class Nofigure implements Figure {
         return name;
     }
 
-    public Collection<? extends Move> allMoves(Chessboard chessboard, Field field) {
+    public Collection<? extends Move> allMoves(Chessboard chessboard, Square square) {
         return null;
     }
 }

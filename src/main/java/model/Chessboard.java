@@ -5,14 +5,14 @@ package model;
  */
 public class Chessboard {
 
-    private Field[][] fields= new Field[8][8];
+    private Square[][] squares = new Square[8][8];
 
     public Chessboard() {
-        Figure nofigure = new Nofigure();
+        Chessman nofigure = new Nofigure();
         for (int i=0; i<8; i++){
             for(int j=0; j<8; j++){
-                this.fields[i][j]= new Field(i, j);
-                this.fields[i][j].setFigure(nofigure);
+                this.squares[i][j]= new Square(i, j);
+                this.squares[i][j].setChessman(nofigure);
             }
         }
 
@@ -24,14 +24,14 @@ public class Chessboard {
     public String toString(){
         int k;
         String chessboard="    A B C D E F G H"+"\n";
-        for (int i=fields.length-1; i>=0; i--){
+        for (int i = squares.length-1; i>=0; i--){
             k=i+1;
             chessboard=chessboard+k+": ";
-            for(int j=0; j<fields[i].length; j++) {
+            for(int j = 0; j< squares[i].length; j++) {
 
                     chessboard=chessboard+" ";
 
-                chessboard = chessboard + fields[i][j].getFigure().toString2();
+                chessboard = chessboard + squares[i][j].getChessman().toString2();
             }
             chessboard=chessboard+" "+k+"\n";
         }
@@ -42,55 +42,65 @@ public class Chessboard {
     }
 
     public void spacingFigure(Player player1, Player player2) {
-        player1.getColor().add(fields[0][4]);
-        fields[0][4].setFigure(new King((char)9812, player1.getColor()));
-        fields[0][4].setEmpty(false);
+        player1.getColor().add(squares[0][4]);
+        squares[0][4].setChessman(new King((char)9812, player1.getColor()));
+        squares[0][4].setEmpty(false);
 
-        player1.getColor().add(fields[0][1]);
-        player1.getColor().add(fields[0][6]);
+        player1.getColor().add(squares[0][1]);
+        player1.getColor().add(squares[0][6]);
+        squares[0][1].setEmpty(false);
+        squares[0][6].setEmpty(false);
+        squares[0][1].setChessman(new Knight((char)9816, player1.getColor()));
+        squares[0][6].setChessman(new Knight((char)9816, player1.getColor()));
 
-        fields[0][1].setEmpty(false);
-        fields[0][6].setEmpty(false);
-
-        fields[0][1].setFigure(new Knight((char)9816, player1.getColor()));
-        fields[0][6].setFigure(new Knight((char)9816, player1.getColor()));
+        player1.getColor().add(squares[0][0]);
+        player1.getColor().add(squares[0][7]);
+        squares[0][0].setEmpty(false);
+        squares[0][7].setEmpty(false);
+        squares[0][0].setChessman(new Rook((char)9814, player1.getColor()));
+        squares[0][7].setChessman(new Rook((char)9814, player1.getColor()));
 
         for(int i=0; i<8; i++){
-            player1.getColor().add(fields[1][i]);
-            fields[1][i].setEmpty(false);
-            fields[1][i].setFigure(new Pawn((char) 9817, player1.getColor()));
+            player1.getColor().add(squares[1][i]);
+            squares[1][i].setEmpty(false);
+            squares[1][i].setChessman(new Pawn((char) 9817, player1.getColor()));
 
-            player2.getColor().add(fields[6][i]);
-            fields[6][i].setEmpty(false);
-            fields[6][i].setFigure(new Pawn((char) 9823 , player2.getColor()));
+            player2.getColor().add(squares[6][i]);
+            squares[6][i].setEmpty(false);
+            squares[6][i].setChessman(new Pawn((char) 9823 , player2.getColor()));
         }
 
-        player2.getColor().add(fields[7][4]);
-        fields[7][4].setFigure(new King((char)9818, player2.getColor()));
-        fields[7][4].setEmpty(false);
+        player2.getColor().add(squares[7][4]);
+        squares[7][4].setChessman(new King((char)9818, player2.getColor()));
+        squares[7][4].setEmpty(false);
 
-        player2.getColor().add(fields[7][1]);
-        player2.getColor().add(fields[7][6]);
+        player2.getColor().add(squares[7][1]);
+        player2.getColor().add(squares[7][6]);
+        squares[7][1].setEmpty(false);
+        squares[7][6].setEmpty(false);
+        squares[7][1].setChessman(new Knight((char)9822, player2.getColor()));
+        squares[7][6].setChessman(new Knight((char)9822, player2.getColor()));
 
-        fields[7][1].setEmpty(false);
-        fields[7][6].setEmpty(false);
-
-        fields[7][1].setFigure(new Knight((char)9822, player2.getColor()));
-        fields[7][6].setFigure(new Knight((char)9822, player2.getColor()));
+        player2.getColor().add(squares[7][0]);
+        player2.getColor().add(squares[7][7]);
+        squares[7][0].setEmpty(false);
+        squares[7][7].setEmpty(false);
+        squares[7][0].setChessman(new Rook((char)9820, player2.getColor()));
+        squares[7][7].setChessman(new Rook((char)9820, player2.getColor()));
 
 
 
     }
 
     public void doMove(Move move) {
-        move.initialField.setEmpty(true);
-        move.initialField.setFigure(new Nofigure());
+        move.initialSquare.setEmpty(true);
+        move.initialSquare.setChessman(new Nofigure());
 
-        move.finalField.setEmpty(false);
-        move.finalField.setFigure(move.figure);
+        move.finalSquare.setEmpty(false);
+        move.finalSquare.setChessman(move.chessman);
     }
 
-    public Field[][] getFields() {
-        return fields;
+    public Square[][] getSquares() {
+        return squares;
     }
 }

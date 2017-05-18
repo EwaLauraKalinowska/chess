@@ -4,13 +4,13 @@ package model;
  * Created by ewcia on 17.05.17.
  */
 public class Move {
-    Field initialField;
-    Field finalField;
-    Figure figure;
+    Square initialSquare;
+    Square finalSquare;
+    Chessman chessman;
 
-    public Move(Field initialField, Field finalField, Figure figure) {
-        this.initialField = initialField;
-        this.finalField = finalField;
-        this.figure = figure;
+    public Move(Square initialSquare, Square finalSquare, Chessman chessman) {
+        this.initialSquare = initialSquare;
+        this.finalSquare = finalSquare;
+        this.chessman = chessman;
     }
 }

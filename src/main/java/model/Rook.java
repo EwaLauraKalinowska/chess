@@ -34,6 +34,41 @@ public class Rook implements Chessman {
 
     public Collection<? extends Move> allMoves(Chessboard chessboard, Square square) {
         List <Move> moveList=new ArrayList<Move>();
+        int x=square.getX();
+        int y=square.getY();
+        while (x<7&&chessboard.getSquares()[x+1][y].isEmpty()){
+            x++;
+            if(chessboard.getSquares()[x][y].getChessman().getNameOfColor()!=square.getChessman().getNameOfColor()){
+                moveList.add(new Move(square, chessboard.getSquares()[x][y], this));
+            }
+        }
+        x=square.getX();
+        y=square.getY();
+
+        while (x>1&&chessboard.getSquares()[x-1][y].isEmpty()){
+            x--;
+            if(chessboard.getSquares()[x][y].getChessman().getNameOfColor()!=square.getChessman().getNameOfColor()){
+                moveList.add(new Move(square, chessboard.getSquares()[x][y], this));
+            }
+        }
+
+        x=square.getX();
+        y=square.getY();
+        while (y<7&&chessboard.getSquares()[x][y+1].isEmpty()){
+            y++;
+            if(chessboard.getSquares()[x][y].getChessman().getNameOfColor()!=square.getChessman().getNameOfColor()){
+                moveList.add(new Move(square, chessboard.getSquares()[x][y], this));
+            }
+        }
+
+        x=square.getX();
+        y=square.getY();
+        while (y>1&&chessboard.getSquares()[x][y-1].isEmpty()){
+            y--;
+            if(chessboard.getSquares()[x][y].getChessman().getNameOfColor()!=square.getChessman().getNameOfColor()){
+                moveList.add(new Move(square, chessboard.getSquares()[x][y], this));
+            }
+        }
 
 
         return moveList;

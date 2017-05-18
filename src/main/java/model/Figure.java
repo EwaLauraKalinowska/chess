@@ -8,7 +8,7 @@ import java.util.Collection;
 public interface Figure {
 
 
-    public void setName(String name);
+    public String getColor();
 
 
 

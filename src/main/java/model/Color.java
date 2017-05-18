@@ -28,7 +28,11 @@ public class Color {
     public void makeMove(Chessboard chessboard){
         List <Move>listOfMoves= new ArrayList<Move>();
         for (Field field: listOfFields) {
-            listOfMoves.addAll(field.getFigure().allMoves(chessboard, field));
+            if(field.getFigure().allMoves(chessboard, field)==null){
+
+            }else {
+                listOfMoves.addAll(field.getFigure().allMoves(chessboard, field));
+            }
         }
         Random random=new Random();
        Move move= listOfMoves.get(random.nextInt(listOfMoves.size()));
@@ -47,5 +51,6 @@ public class Color {
             }
         }
         return isKing;
+
     }
 }

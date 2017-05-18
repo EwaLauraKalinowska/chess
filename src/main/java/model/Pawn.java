@@ -3,27 +3,26 @@ package model;
 import java.util.Collection;
 
 /**
- * Created by ewcia on 16.05.17.
+ * Created by ewcia on 18.05.17.
  */
-public class Nofigure implements Figure {
-    char name;
-    public Nofigure() {
-        name='.';
-    }
-    public void setName(String name) {
+public class Pawn implements Figure{
+    Color color;
+    private char name;
 
+    public Pawn(char name, Color color) {
+        this.color = color;
+        this.name = name;
     }
 
     public String getColor() {
-        return null;
+        return this.color.getName();
     }
 
     public char getName() {
         return name;
     }
 
-
-    public char toString2(){
+    public char toString2() {
         return name;
     }
 

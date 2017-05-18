@@ -25,28 +25,45 @@ public class King implements Figure {
     public List<Move> allMoves(Chessboard chessboard, Field field) {
         List<Move> moveList=new ArrayList<Move>();
         if(field.getX()-1>-1){
-            moveList.add(new Move(field, chessboard.fields[field.getX()-1][field.getY()], this));
+            if(chessboard.fields[field.getX()-1][field.getY()].getFigure().getColor()!=this.getColor()||chessboard.fields[field.getX()-1][field.getY()].getFigure().getColor()==null) {
+                moveList.add(new Move(field, chessboard.fields[field.getX() - 1][field.getY()], this));
+            }
             if(field.getY()-1>-1){
-                moveList.add(new Move(field, chessboard.fields[field.getX()-1][field.getY()-1], this));
+                if(chessboard.fields[field.getX()-1][field.getY()-1].getFigure().getColor()!=this.getColor()||chessboard.fields[field.getX()-1][field.getY()-1].getFigure().getColor()==null) {
+                    moveList.add(new Move(field, chessboard.fields[field.getX() - 1][field.getY() - 1], this));
+                }
             }
             if(field.getY()+1<8){
-                moveList.add(new Move(field,chessboard.fields[field.getX()-1][field.getY()+1], this));
+                if(chessboard.fields[field.getX()-1][field.getY()+1].getFigure().getColor()!=this.getColor()||chessboard.fields[field.getX()-1][field.getY()+1].getFigure().getColor()==null) {
+                    moveList.add(new Move(field, chessboard.fields[field.getX() - 1][field.getY() + 1], this));
+                }
             }
 
         }
         if(field.getY()-1>-1){
-            moveList.add(new Move(field, chessboard.fields[field.getX()][field.getY()-1], this));
+            if(chessboard.fields[field.getX()][field.getY()-1].getFigure().getColor()!=this.getColor()||chessboard.fields[field.getX()][field.getY()-1].getFigure().getColor()==null) {
+                moveList.add(new Move(field, chessboard.fields[field.getX()][field.getY() - 1], this));
+            }
         }
         if(field.getY()+1<8){
-            moveList.add(new Move(field,chessboard.fields[field.getX()][field.getY()+1], this));
+            if(chessboard.fields[field.getX()][field.getY()+1].getFigure().getColor()!=this.getColor()||chessboard.fields[field.getX()][field.getY()+1].getFigure().getColor()==null) {
+                moveList.add(new Move(field, chessboard.fields[field.getX()][field.getY() + 1], this));
+            }
         }
         if(field.getX()+1<8){
-            moveList.add(new Move(field, chessboard.fields[field.getX()+1][field.getY()], this));
+
+                if(chessboard.fields[field.getX()+1][field.getY()].getFigure().getColor()!=this.getColor()||chessboard.fields[field.getX()+1][field.getY()].getFigure().getColor()==null) {
+                    moveList.add(new Move(field, chessboard.fields[field.getX() + 1][field.getY()], this));
+            }
             if(field.getY()-1>-1){
-                moveList.add(new Move(field, chessboard.fields[field.getX()+1][field.getY()-1], this));
+
+                if(chessboard.fields[field.getX()+1][field.getY()-1].getFigure().getColor()!=this.getColor()||chessboard.fields[field.getX()+1][field.getY()-1].getFigure().getColor()==null){
+                    moveList.add(new Move(field, chessboard.fields[field.getX()+1][field.getY()-1], this));}
            }
            if(field.getY()+1<8){
-                moveList.add(new Move(field,chessboard.fields[field.getX()+1][field.getY()+1], this));
+
+                if(chessboard.fields[field.getX()+1][field.getY()+1].getFigure().getColor()!=this.getColor()||chessboard.fields[field.getX()+1][field.getY()+1].getFigure().getColor()==null){
+                    moveList.add(new Move(field,chessboard.fields[field.getX()+1][field.getY()+1], this));}
             }
 
         }
@@ -54,6 +71,11 @@ public class King implements Figure {
     }
 
     public void setName(String name) {
+    }
+
+
+    public String getColor() {
+        return this.color.getName();
     }
 
     public char getName() {

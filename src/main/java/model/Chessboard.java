@@ -40,8 +40,17 @@ public class Chessboard {
 
     public void spacingFigure(Player player1, Player player2) {
         player1.getColor().add(fields[0][4]);
-        fields[0][4].setFigure(new King((char)9812,player1.getColor()  ));
+        fields[0][4].setFigure(new King((char)9812, player1.getColor()));
         fields[0][4].setEmpty(false);
+        for(int i=0; i<8; i++){
+            player1.getColor().add(fields[1][i]);
+            fields[1][i].setEmpty(false);
+            fields[1][i].setFigure(new Pawn((char) 9817, player1.getColor()));
+
+            player2.getColor().add(fields[6][i]);
+            fields[6][i].setEmpty(false);
+            fields[6][i].setFigure(new Pawn((char) 9823 , player2.getColor()));
+        }
 
         player2.getColor().add(fields[7][4]);
         fields[7][4].setFigure(new King((char)9818, player2.getColor()));

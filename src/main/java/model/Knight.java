@@ -1,6 +1,8 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by ewcia on 18.05.17.
@@ -31,6 +33,59 @@ public class Knight implements Figure {
     }
 
     public Collection<? extends Move> allMoves(Chessboard chessboard, Field field) {
-        return null;
+        List<Move> moveList=new ArrayList<Move>();
+        if(field.getX()-1>=0){
+            if(field.getY()-2>=0){
+               if(chessboard.getFields()[field.getX()-1][field.getY()-2].getFigure().getNameOfColor()!=this.getNameOfColor()){
+                   moveList.add(new Move(field, chessboard.getFields()[field.getX()-1][field.getY()-2], this));
+               }
+            }
+            if (field.getY()+2<8){
+                if(chessboard.getFields()[field.getX()-1][field.getY()+2].getFigure().getNameOfColor()!=this.getNameOfColor()){
+                    moveList.add(new Move(field, chessboard.getFields()[field.getX()-1][field.getY()+2], this));
+                }
+            }
+        }
+        if(field.getX()-2>=0){
+            if(field.getY()-1>=0){
+                if(chessboard.getFields()[field.getX()-2][field.getY()-1].getFigure().getNameOfColor()!=this.getNameOfColor()){
+                    moveList.add(new Move(field, chessboard.getFields()[field.getX()-2][field.getY()-1], this));
+                }
+
+            }
+            if (field.getY()+1<8){
+                if(chessboard.getFields()[field.getX()-2][field.getY()+1].getFigure().getNameOfColor()!=this.getNameOfColor()){
+                    moveList.add(new Move(field, chessboard.getFields()[field.getX()-2][field.getY()+1], this));
+                }
+            }
+        }
+        if(field.getX()+1<8){
+            if(field.getY()-2>=0){
+                if(chessboard.getFields()[field.getX()+1][field.getY()-2].getFigure().getNameOfColor()!=this.getNameOfColor()){
+                    moveList.add(new Move(field, chessboard.getFields()[field.getX()+1][field.getY()-2], this));
+                }
+            }
+            if (field.getY()+2<8){
+                if(chessboard.getFields()[field.getX()+1][field.getY()+2].getFigure().getNameOfColor()!=this.getNameOfColor()){
+                    moveList.add(new Move(field, chessboard.getFields()[field.getX()+1][field.getY()+2], this));
+                }
+            }
+        }
+        if(field.getX()+2<8){
+            if(field.getY()-1>=0){
+                if(chessboard.getFields()[field.getX()+2][field.getY()-1].getFigure().getNameOfColor()!=this.getNameOfColor()){
+                    moveList.add(new Move(field, chessboard.getFields()[field.getX()+2][field.getY()-1], this));
+                }
+
+            }
+            if (field.getY()+1<8){
+                if(chessboard.getFields()[field.getX()+2][field.getY()+1].getFigure().getNameOfColor()!=this.getNameOfColor()){
+                    moveList.add(new Move(field, chessboard.getFields()[field.getX()+2][field.getY()+1], this));
+                }
+            }
+        }
+
+
+        return moveList;
     }
 }

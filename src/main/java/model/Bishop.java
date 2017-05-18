@@ -36,42 +36,70 @@ public class Bishop implements Chessman {
     public Collection<? extends Move> allMoves(Chessboard chessboard, Square square) {
         List<Move> moveList=new ArrayList<Move>();
 
-        int x=square.getX();
-        int y=square.getY();
-        while (x<7&&chessboard.getSquares()[x+1][y].isEmpty()){
+        int x=square.getX()+1;
+        int y=square.getY()+1;
+        while (x<8&&y<8&&chessboard.getSquares()[x][y].isEmpty()){
+
+            moveList.add(new Move(square, chessboard.getSquares()[x][y], this));
+
             x++;
-            if(chessboard.getSquares()[x][y].getChessman().getNameOfColor()!=square.getChessman().getNameOfColor()){
-                moveList.add(new Move(square, chessboard.getSquares()[x][y], this));
-            }
-        }
-        x=square.getX();
-        y=square.getY();
-
-        while (x>1&&chessboard.getSquares()[x-1][y].isEmpty()){
-            x--;
-            if(chessboard.getSquares()[x][y].getChessman().getNameOfColor()!=square.getChessman().getNameOfColor()){
-                moveList.add(new Move(square, chessboard.getSquares()[x][y], this));
-            }
-        }
-
-        x=square.getX();
-        y=square.getY();
-        while (y<7&&chessboard.getSquares()[x][y+1].isEmpty()){
             y++;
+        }
+        if(x<8&&y<8){
+
             if(chessboard.getSquares()[x][y].getChessman().getNameOfColor()!=square.getChessman().getNameOfColor()){
                 moveList.add(new Move(square, chessboard.getSquares()[x][y], this));
-            }
-        }
+            }}
 
-        x=square.getX();
-        y=square.getY();
-        while (y>1&&chessboard.getSquares()[x][y-1].isEmpty()){
+        x=square.getX()+1;
+        y=square.getY()-1;
+
+        while (x<8&&y>=0&&chessboard.getSquares()[x][y].isEmpty()){
+
+
+            moveList.add(new Move(square, chessboard.getSquares()[x][y], this));
+
+
+            x++;
             y--;
-            if(chessboard.getSquares()[x][y].getChessman().getNameOfColor()!=square.getChessman().getNameOfColor()){
-                moveList.add(new Move(square, chessboard.getSquares()[x][y], this));
-            }
         }
 
+        if(x<8&&y>=0){
+
+            if(chessboard.getSquares()[x][y].getChessman().getNameOfColor()!=square.getChessman().getNameOfColor()){
+                moveList.add(new Move(square, chessboard.getSquares()[x][y], this));
+            }}
+
+        x=square.getX()-1;
+        y=square.getY()+1;
+        while (y<8&&x>=0&&chessboard.getSquares()[x][y].isEmpty()){
+
+            moveList.add(new Move(square, chessboard.getSquares()[x][y], this));
+
+            x--;
+            y++;
+        }
+
+        if (y<8&&x>=0){
+
+            if(chessboard.getSquares()[x][y].getChessman().getNameOfColor()!=square.getChessman().getNameOfColor()){
+                moveList.add(new Move(square, chessboard.getSquares()[x][y], this));
+            }}
+        x=square.getX()-1;
+        y=square.getY()-1;
+        while (y>=0&&x>=0&&chessboard.getSquares()[x][y].isEmpty()){
+
+
+            moveList.add(new Move(square, chessboard.getSquares()[x][y], this));
+
+            x--;
+            y--;
+        }
+        if (y>=0&&x>=0){
+
+
+                moveList.add(new Move(square, chessboard.getSquares()[x][y], this));
+            }
 
 
         return moveList;

@@ -25,44 +25,44 @@ public class King implements Figure {
     public List<Move> allMoves(Chessboard chessboard, Field field) {
         List<Move> moveList=new ArrayList<Move>();
         if(field.getX()-1>-1){
-            if(chessboard.fields[field.getX()-1][field.getY()].getFigure().getColor()!=this.getColor()||chessboard.fields[field.getX()-1][field.getY()].getFigure().getColor()==null) {
+            if(chessboard.fields[field.getX()-1][field.getY()].getFigure().getNameOfColor()!=this.getNameOfColor()||chessboard.fields[field.getX()-1][field.getY()].getFigure().getColor()==null) {
                 moveList.add(new Move(field, chessboard.fields[field.getX() - 1][field.getY()], this));
             }
             if(field.getY()-1>-1){
-                if(chessboard.fields[field.getX()-1][field.getY()-1].getFigure().getColor()!=this.getColor()||chessboard.fields[field.getX()-1][field.getY()-1].getFigure().getColor()==null) {
+                if(chessboard.fields[field.getX()-1][field.getY()-1].getFigure().getNameOfColor()!=this.getNameOfColor()||chessboard.fields[field.getX()-1][field.getY()-1].getFigure().getColor()==null) {
                     moveList.add(new Move(field, chessboard.fields[field.getX() - 1][field.getY() - 1], this));
                 }
             }
             if(field.getY()+1<8){
-                if(chessboard.fields[field.getX()-1][field.getY()+1].getFigure().getColor()!=this.getColor()||chessboard.fields[field.getX()-1][field.getY()+1].getFigure().getColor()==null) {
+                if(chessboard.fields[field.getX()-1][field.getY()+1].getFigure().getNameOfColor()!=this.getNameOfColor()||chessboard.fields[field.getX()-1][field.getY()+1].getFigure().getColor()==null) {
                     moveList.add(new Move(field, chessboard.fields[field.getX() - 1][field.getY() + 1], this));
                 }
             }
 
         }
         if(field.getY()-1>-1){
-            if(chessboard.fields[field.getX()][field.getY()-1].getFigure().getColor()!=this.getColor()||chessboard.fields[field.getX()][field.getY()-1].getFigure().getColor()==null) {
+            if(chessboard.fields[field.getX()][field.getY()-1].getFigure().getNameOfColor()!=this.getNameOfColor()||chessboard.fields[field.getX()][field.getY()-1].getFigure().getColor()==null) {
                 moveList.add(new Move(field, chessboard.fields[field.getX()][field.getY() - 1], this));
             }
         }
         if(field.getY()+1<8){
-            if(chessboard.fields[field.getX()][field.getY()+1].getFigure().getColor()!=this.getColor()||chessboard.fields[field.getX()][field.getY()+1].getFigure().getColor()==null) {
+            if(chessboard.fields[field.getX()][field.getY()+1].getFigure().getNameOfColor()!=this.getNameOfColor()||chessboard.fields[field.getX()][field.getY()+1].getFigure().getColor()==null) {
                 moveList.add(new Move(field, chessboard.fields[field.getX()][field.getY() + 1], this));
             }
         }
         if(field.getX()+1<8){
 
-                if(chessboard.fields[field.getX()+1][field.getY()].getFigure().getColor()!=this.getColor()||chessboard.fields[field.getX()+1][field.getY()].getFigure().getColor()==null) {
+                if(chessboard.fields[field.getX()+1][field.getY()].getFigure().getNameOfColor()!=this.getNameOfColor()||chessboard.fields[field.getX()+1][field.getY()].getFigure().getColor()==null) {
                     moveList.add(new Move(field, chessboard.fields[field.getX() + 1][field.getY()], this));
             }
             if(field.getY()-1>-1){
 
-                if(chessboard.fields[field.getX()+1][field.getY()-1].getFigure().getColor()!=this.getColor()||chessboard.fields[field.getX()+1][field.getY()-1].getFigure().getColor()==null){
+                if(chessboard.fields[field.getX()+1][field.getY()-1].getFigure().getNameOfColor()!=this.getNameOfColor()||chessboard.fields[field.getX()+1][field.getY()-1].getFigure().getColor()==null){
                     moveList.add(new Move(field, chessboard.fields[field.getX()+1][field.getY()-1], this));}
            }
            if(field.getY()+1<8){
 
-                if(chessboard.fields[field.getX()+1][field.getY()+1].getFigure().getColor()!=this.getColor()||chessboard.fields[field.getX()+1][field.getY()+1].getFigure().getColor()==null){
+                if(chessboard.fields[field.getX()+1][field.getY()+1].getFigure().getNameOfColor()!=this.getNameOfColor()||chessboard.fields[field.getX()+1][field.getY()+1].getFigure().getColor()==null){
                     moveList.add(new Move(field,chessboard.fields[field.getX()+1][field.getY()+1], this));}
             }
 
@@ -70,12 +70,13 @@ public class King implements Figure {
         return moveList;
     }
 
-    public void setName(String name) {
+
+    public String getNameOfColor() {
+        return this.color.getName();
     }
 
-
-    public String getColor() {
-        return this.color.getName();
+    public Color getColor() {
+        return color;
     }
 
     public char getName() {

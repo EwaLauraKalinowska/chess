@@ -14,7 +14,11 @@ public class Nofigure implements Figure {
 
     }
 
-    public String getColor() {
+    public String getNameOfColor() {
+        return null;
+    }
+
+    public Color getColor() {
         return null;
     }
 

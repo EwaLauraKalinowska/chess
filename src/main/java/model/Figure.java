@@ -8,8 +8,9 @@ import java.util.Collection;
 public interface Figure {
 
 
-    public String getColor();
+    public String getNameOfColor();
 
+    public Color getColor();
 
 
     public char getName();

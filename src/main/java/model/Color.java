@@ -38,6 +38,9 @@ public class Color {
        Move move= listOfMoves.get(random.nextInt(listOfMoves.size()));
        listOfFields.add(move.finalField);
        listOfFields.remove(move.initialField);
+       if(!move.finalField.isEmpty()){
+           move.finalField.getFigure().getColor().listOfFields.remove(move.finalField);
+       }
 
 
        chessboard.doMove(move);

@@ -42,9 +42,14 @@ public class Chessboard {
     }
 
     public void spacingFigure(Player player1, Player player2) {
+
         player1.getColor().add(squares[0][4]);
         squares[0][4].setChessman(new King((char)9812, player1.getColor()));
         squares[0][4].setEmpty(false);
+
+        player1.getColor().add(squares[0][3]);
+        squares[0][3].setChessman(new Queen((char)9813, player1.getColor()));
+        squares[0][3].setEmpty(false);
 
         player1.getColor().add(squares[0][1]);
         player1.getColor().add(squares[0][6]);
@@ -67,6 +72,8 @@ public class Chessboard {
         squares[0][2].setChessman(new Bishop((char)9815, player1.getColor()));
         squares[0][5].setChessman(new Bishop((char)9815, player1.getColor()));
 
+
+
         for(int i=0; i<8; i++){
             player1.getColor().add(squares[1][i]);
             squares[1][i].setEmpty(false);
@@ -80,6 +87,10 @@ public class Chessboard {
         player2.getColor().add(squares[7][4]);
         squares[7][4].setChessman(new King((char)9818, player2.getColor()));
         squares[7][4].setEmpty(false);
+
+        player2.getColor().add(squares[7][3]);
+        squares[7][3].setChessman(new Queen((char)9819, player2.getColor()));
+        squares[7][3].setEmpty(false);
 
         player2.getColor().add(squares[7][1]);
         player2.getColor().add(squares[7][6]);
